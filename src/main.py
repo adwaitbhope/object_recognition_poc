@@ -60,9 +60,13 @@ class Handler:
             return
 
         os.chdir(self.base_working_dir)
-        path = '../models/' + model + '/frozen_inference_graph.pb'
+        parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+        models_dir = os.path.join(parent_dir, 'models')
+        model_dir = os.path.join(models_dir, model)
+        model_path = os.path.join(model_dir, 'frozen_inference_graph.pb')
+        
         self.threshold = threshold
-        odapi = DetectorAPI(path_to_ckpt=path)
+        odapi = DetectorAPI(path_to_ckpt=model_path)
         self.pred_boxes, self.pred_scores, self.pred_classes, self.pred_num = odapi.process_frame(self.un_annotated_frame)
 
         annotated_frame = self.un_annotated_frame.copy()
@@ -102,7 +106,10 @@ class Handler:
         self.labels = {}
         self.img_processed = False
 
-        file = open('../coco_labels.txt', 'r')
+        parent_dir = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
+        labels_path = os.path.join(parent_dir, 'coco_labels.txt')
+
+        file = open(labels_path, 'r')
         content = file.readlines()
         file.close()
 

@@ -43,7 +43,7 @@ class GUI:
         elif id == 3:
             options = QFileDialog.Options()
             options |= QFileDialog.DontUseNativeDialog
-            file_path, _ = QFileDialog.getSaveFileName(self.main_widget, 'Select location to save', '/', 'XML (*.xml)', options=options)
+            file_path, _ = QFileDialog.getSaveFileName(self.main_widget, 'Select location to save', '', 'XML (*.xml)', options=options)
             self.handler.on_save_xml_clicked(file_path)
 
     def init_select_model_window(self):
@@ -158,10 +158,10 @@ class GUI:
             options = QFileDialog.Options()
             options |= QFileDialog.DontUseNativeDialog
 
-            dir = QFileDialog.getExistingDirectory(self.main_widget, 'Select a folder:', '/', options)
+            dir = QFileDialog.getExistingDirectory(self.main_widget, 'Select a folder:', '', options)
             if dir:
-                dir_path.setText(dir + '/')
-                self.handler.on_dir_selected(dir + '/')
+                dir_path.setText(os.path.join(dir, ''))
+                self.handler.on_dir_selected(os.path.join(dir, ''))
 
         pick_dir = QPushButton('Select folder')
         pick_dir.clicked.connect(pick_dir_window)
