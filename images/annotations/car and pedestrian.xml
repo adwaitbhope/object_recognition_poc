@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<annotation>
+	<folder>/home/adwait_bhope/Desktop/Files/Internships/Resolute AI/auto annotation/streamlit/images</folder>
+	<filename>car and pedestrian.jpg</filename>
+	<path>/home/adwait_bhope/Desktop/Files/Internships/Resolute AI/auto annotation/streamlit/imagescar and pedestrian.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1000</width>
+		<height>702</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>person</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>93</xmin>
+			<ymin>87</ymin>
+			<xmax>618</xmax>
+			<ymax>298</ymax>
+		</bndbox>
+	</object>
+</annotation>
