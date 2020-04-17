@@ -28,10 +28,10 @@ def generate_xml(labels, coordinates, img_dir, img_name, annotations_dir, shape)
         ET.SubElement(object, 'difficult').text = '0'
 
         bndbox = ET.SubElement(object, 'bndbox')
-        ET.SubElement(bndbox, 'xmin').text = str(box[0])
-        ET.SubElement(bndbox, 'ymin').text = str(box[1])
-        ET.SubElement(bndbox, 'xmax').text = str(box[2])
-        ET.SubElement(bndbox, 'ymax').text = str(box[3])
+        ET.SubElement(bndbox, 'xmin').text = str(box[1])
+        ET.SubElement(bndbox, 'ymin').text = str(box[0])
+        ET.SubElement(bndbox, 'xmax').text = str(box[3])
+        ET.SubElement(bndbox, 'ymax').text = str(box[2])
 
     img_name_without_ext = os.path.splitext(img_name)[0]
     annotations_file_path = os.path.join(annotations_dir, img_name_without_ext + '.xml')
